@@ -16,6 +16,7 @@ class CameraView: UIViewController, AVCapturePhotoCaptureDelegate {
     var previewLayer: AVCaptureVideoPreviewLayer!
     
     
+    @IBOutlet var processButton: UIButton!
     @IBOutlet var cameraView: UIView!
     @IBOutlet weak var tempImageView: UIImageView!
     @IBOutlet var captureButton: UIButton!
@@ -23,6 +24,80 @@ class CameraView: UIViewController, AVCapturePhotoCaptureDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        previewLayer?.frame = cameraView.bounds
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadCamera()
+        captureButton.isHidden = false
+        captureButton.isEnabled = true
+        deleteButton.isHidden = true
+        deleteButton.isEnabled = false
+        processButton.isHidden = true
+        processButton.isEnabled = false
+        tempImageView.isHidden = true
+    }
+    
+
+    @IBAction func didPressTakePhoto(_ sender: Any) {
+        takePicture()
+    }
+    
+    @IBAction func didPressDelete(_ sender: UIButton) {
+        captureButton.isHidden = false
+        captureButton.isEnabled = true
+        deleteButton.isHidden = true
+        deleteButton.isEnabled = false
+        processButton.isHidden = true
+        processButton.isEnabled = false
+        tempImageView.isHidden = true
+    }
+    
+    func takePicture(){
+        print("buttonpressed")
+        captureButton.isHidden = true
+        captureButton.isEnabled = false
+        let settingsForMonitoring = AVCapturePhotoSettings()
+        settingsForMonitoring.flashMode = .off
+        settingsForMonitoring.isAutoStillImageStabilizationEnabled = true
+        settingsForMonitoring.isHighResolutionPhotoEnabled = true
+        stillImageOutput?.capturePhoto(with: settingsForMonitoring, delegate: self)
+    }
+    
+    func capture(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhotoSampleBuffer photoSampleBuffer: CMSampleBuffer?, previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
+        
+        
+        if let error = error {
+            print(error.localizedDescription)
+        }
+        
+        if let photoSampleBuffer = photoSampleBuffer {
+            let photoData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: photoSampleBuffer, previewPhotoSampleBuffer: previewPhotoSampleBuffer)
+            if let image = UIImage(data: photoData!){
+                tempImageView.image = image
+                deleteButton.isEnabled = true
+                deleteButton.isHidden = false
+                processButton.isEnabled = true
+                processButton.isHidden = false
+                self.tempImageView.isHidden = false
+                print("hey")
+            }
+        }
+        
+    }
+    
+    func loadCamera(){
         captureSession = AVCaptureSession()
         captureSession.sessionPreset = AVCaptureSessionPreset1920x1080
         stillImageOutput = AVCapturePhotoOutput()
@@ -46,66 +121,15 @@ class CameraView: UIViewController, AVCapturePhotoCaptureDelegate {
         catch {
             print(error)
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        previewLayer?.frame = cameraView.bounds
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        
-        
-    }
-    
 
-    @IBAction func didPressTakePhoto(_ sender: Any) {
-        print("buttonpressed")
-        captureButton.isHidden = true
-        captureButton.isEnabled = false
-        let settingsForMonitoring = AVCapturePhotoSettings()
-        settingsForMonitoring.flashMode = .auto
-        settingsForMonitoring.isAutoStillImageStabilizationEnabled = true
-        settingsForMonitoring.isHighResolutionPhotoEnabled = true
-        stillImageOutput?.capturePhoto(with: settingsForMonitoring, delegate: self)
-        
     }
     
-    func capture(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhotoSampleBuffer photoSampleBuffer: CMSampleBuffer?, previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
-        
-        
-        if let error = error {
-            print(error.localizedDescription)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let newView = segue.destination as! ProcessingView
+        if (segue.identifier == "toProcess"){
+            newView.processedImage = tempImageView.image
         }
-        
-        if let photoSampleBuffer = photoSampleBuffer {
-            let photoData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: photoSampleBuffer, previewPhotoSampleBuffer: previewPhotoSampleBuffer)
-            if let image = UIImage(data: photoData!){
-                tempImageView.image = image
-                deleteButton.isEnabled = true
-                deleteButton.isHidden = false
-                self.tempImageView.isHidden = false
-                print("hey")
-            }
-        }
-        
     }
-    @IBAction func didPressDelete(_ sender: UIButton) {
-        captureButton.isHidden = false
-        captureButton.isEnabled = true
-        deleteButton.isHidden = true
-        deleteButton.isEnabled = false
-        tempImageView.isHidden = true
-    }
-    
 }
 
 

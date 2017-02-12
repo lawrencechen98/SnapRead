@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,10 +27,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5d-Ih-O6x">
-                                <rect key="frame" x="163" y="545" width="49" height="102"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="75"/>
-                                <state key="normal" title="X">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5d-Ih-O6x">
+                                <rect key="frame" x="152.5" y="577" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="dcB-2x-UMf"/>
+                                    <constraint firstAttribute="width" constant="70" id="i6V-RD-kjd"/>
+                                </constraints>
+                                <state key="normal" image="Snap">
                                     <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -43,10 +47,25 @@
                                 <rect key="frame" x="16" y="20" width="30" height="42"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
                                 <state key="normal" title="X">
-                                    <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="didPressDelete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YJs-AW-Lx6"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleAspectFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccI-Dx-ZcT">
+                                <rect key="frame" x="87.5" y="521.5" width="200" height="105.5"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="DSw-Pf-sW5"/>
+                                    <constraint firstAttribute="width" secondItem="ccI-Dx-ZcT" secondAttribute="height" multiplier="464:245" id="na5-qL-8ru"/>
+                                </constraints>
+                                <size key="titleShadowOffset" width="21" height="0.0"/>
+                                <state key="normal" title="Process" image="Read">
+                                    <color key="titleShadowColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="3fU-3E-KhJ" kind="presentation" identifier="toProcess" id="iYk-Gg-y3E"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -57,16 +76,18 @@
                             <constraint firstItem="LU7-ho-IsZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="HHH-BP-P7D"/>
                             <constraint firstAttribute="trailing" secondItem="4Gt-pX-5vF" secondAttribute="trailing" id="Hbf-rF-1J5"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4Gt-pX-5vF" secondAttribute="bottom" id="KSw-hg-ek0"/>
+                            <constraint firstItem="Bm5-HC-5m3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ks8-YT-8Y9"/>
+                            <constraint firstItem="ccI-Dx-ZcT" firstAttribute="centerX" secondItem="Bm5-HC-5m3" secondAttribute="centerX" id="PTN-06-f5F"/>
+                            <constraint firstItem="C5d-Ih-O6x" firstAttribute="top" secondItem="ccI-Dx-ZcT" secondAttribute="bottom" constant="-50" id="QTi-LV-MZd"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Bm5-HC-5m3" secondAttribute="bottom" id="Sem-wX-fE9"/>
                             <constraint firstItem="C5d-Ih-O6x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="T1x-KR-NNG"/>
-                            <constraint firstAttribute="trailing" secondItem="Bm5-HC-5m3" secondAttribute="trailing" id="UOR-pv-ggv"/>
-                            <constraint firstItem="Bm5-HC-5m3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ubk-I4-VRp"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="C5d-Ih-O6x" secondAttribute="bottom" constant="20" id="VoB-Sj-7al"/>
-                            <constraint firstItem="Bm5-HC-5m3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fZz-Oh-wX7"/>
+                            <constraint firstItem="Bm5-HC-5m3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gm0-ei-1Kh"/>
+                            <constraint firstAttribute="trailing" secondItem="Bm5-HC-5m3" secondAttribute="trailing" id="hOl-pN-bx6"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4Gt-pX-5vF" secondAttribute="bottom" id="i2r-oF-Q38"/>
                             <constraint firstItem="4Gt-pX-5vF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kWc-ef-Obm"/>
                             <constraint firstItem="LU7-ho-IsZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="nTP-ck-125"/>
                             <constraint firstAttribute="trailing" secondItem="4Gt-pX-5vF" secondAttribute="trailing" id="rFp-OE-SNb"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Bm5-HC-5m3" secondAttribute="bottom" id="v9U-De-sVQ"/>
                             <constraint firstItem="4Gt-pX-5vF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ykB-zS-jkW"/>
                         </constraints>
                         <variation key="default">
@@ -102,6 +123,7 @@
                         <outlet property="cameraView" destination="4Gt-pX-5vF" id="rbJ-qF-kd1"/>
                         <outlet property="captureButton" destination="C5d-Ih-O6x" id="Jtq-a4-apW"/>
                         <outlet property="deleteButton" destination="LU7-ho-IsZ" id="BjP-qz-tRP"/>
+                        <outlet property="processButton" destination="ccI-Dx-ZcT" id="1y0-ga-4eq"/>
                         <outlet property="tempImageView" destination="Bm5-HC-5m3" id="Dw6-1B-BKS"/>
                     </connections>
                 </viewController>
@@ -109,5 +131,63 @@
             </objects>
             <point key="canvasLocation" x="31.199999999999999" y="35.532233883058474"/>
         </scene>
+        <!--Processing View-->
+        <scene sceneID="1zA-ay-AoH">
+            <objects>
+                <viewController id="3fU-3E-KhJ" customClass="ProcessingView" customModule="SnapRead" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rab-hN-98r"/>
+                        <viewControllerLayoutGuide type="bottom" id="VnQ-U5-xQh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rwZ-sq-vJ0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SO4-JR-f5c">
+                                <rect key="frame" x="16" y="20" width="57" height="42"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="toCamera" id="j25-8Y-akb"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZpL-Z2-hQp">
+                                <rect key="frame" x="16" y="70" width="343" height="347"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5ua-tM-XWY">
+                                <rect key="frame" x="322" y="20" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZpL-Z2-hQp" firstAttribute="leading" secondItem="rwZ-sq-vJ0" secondAttribute="leadingMargin" id="6ga-bh-s15"/>
+                            <constraint firstItem="SO4-JR-f5c" firstAttribute="top" secondItem="rab-hN-98r" secondAttribute="bottom" id="B5i-2B-a2V"/>
+                            <constraint firstItem="SO4-JR-f5c" firstAttribute="leading" secondItem="rwZ-sq-vJ0" secondAttribute="leadingMargin" id="Ro5-04-5SO"/>
+                            <constraint firstItem="ZpL-Z2-hQp" firstAttribute="top" secondItem="SO4-JR-f5c" secondAttribute="bottom" constant="8" id="dvG-MQ-Fnp"/>
+                            <constraint firstItem="ZpL-Z2-hQp" firstAttribute="trailing" secondItem="rwZ-sq-vJ0" secondAttribute="trailingMargin" id="iNN-sf-fDD"/>
+                            <constraint firstItem="VnQ-U5-xQh" firstAttribute="top" secondItem="ZpL-Z2-hQp" secondAttribute="bottom" constant="250" id="qq9-Fg-Gjn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activity" destination="5ua-tM-XWY" id="EsZ-Jc-BZJ"/>
+                        <outlet property="processedText" destination="ZpL-Z2-hQp" id="wr2-XH-cfJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="irM-bT-nmD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1072.8" y="-17.541229385307346"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="Read" width="550" height="280"/>
+        <image name="Snap" width="240" height="240"/>
+    </resources>
 </document>

@@ -7,16 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		215805C91E50555E008F0E96 /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215805C81E50555E008F0E96 /* ProcessingView.swift */; };
+		215805CB1E5064D4008F0E96 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215805CA1E5064D4008F0E96 /* TesseractOCR.framework */; };
+		215805CD1E50651B008F0E96 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 215805CC1E50651B008F0E96 /* libz.1.dylib */; };
+		215805D01E506901008F0E96 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 215805CF1E506901008F0E96 /* libstdc++.6.0.9.dylib */; };
+		215805D21E50690C008F0E96 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215805D11E50690C008F0E96 /* CoreImage.framework */; };
 		2196461F1E4FCCB50036495D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2196461E1E4FCCB50036495D /* AppDelegate.swift */; };
 		219646241E4FCCB50036495D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 219646221E4FCCB50036495D /* Main.storyboard */; };
 		219646261E4FCCB50036495D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219646251E4FCCB50036495D /* Assets.xcassets */; };
 		219646291E4FCCB50036495D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 219646271E4FCCB50036495D /* LaunchScreen.storyboard */; };
 		219646311E4FE4CC0036495D /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 219646301E4FE4CC0036495D /* tessdata */; };
 		219646341E4FFA3E0036495D /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219646321E4FFA3E0036495D /* CameraView.swift */; };
-		253E07E61714B16B39B707D7 /* Pods_SnapRead.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B3CC5C99B275299B90DF283 /* Pods_SnapRead.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		215805C81E50555E008F0E96 /* ProcessingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
+		215805CA1E5064D4008F0E96 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TesseractOCR.framework; path = "../../../Library/Developer/Xcode/DerivedData/SnapRead-ftxigcgibszuajbmbbnnjtgxrypz/Build/Products/Debug-iphoneos/TesseractOCRiOS/TesseractOCR.framework"; sourceTree = "<group>"; };
+		215805CC1E50651B008F0E96 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
+		215805CF1E506901008F0E96 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "../../../../../usr/lib/libstdc++.6.0.9.dylib"; sourceTree = "<group>"; };
+		215805D11E50690C008F0E96 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		215805D31E506A3E008F0E96 /* SnapRead-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SnapRead-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		2196461B1E4FCCB50036495D /* SnapRead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapRead.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2196461E1E4FCCB50036495D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		219646231E4FCCB50036495D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -35,7 +45,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				253E07E61714B16B39B707D7 /* Pods_SnapRead.framework in Frameworks */,
+				215805D21E50690C008F0E96 /* CoreImage.framework in Frameworks */,
+				215805D01E506901008F0E96 /* libstdc++.6.0.9.dylib in Frameworks */,
+				215805CD1E50651B008F0E96 /* libz.1.dylib in Frameworks */,
+				215805CB1E5064D4008F0E96 /* TesseractOCR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,8 +76,10 @@
 		2196461D1E4FCCB50036495D /* SnapRead */ = {
 			isa = PBXGroup;
 			children = (
+				215805D31E506A3E008F0E96 /* SnapRead-Bridging-Header.h */,
 				2196461E1E4FCCB50036495D /* AppDelegate.swift */,
 				219646321E4FFA3E0036495D /* CameraView.swift */,
+				215805C81E50555E008F0E96 /* ProcessingView.swift */,
 				219646301E4FE4CC0036495D /* tessdata */,
 				219646221E4FCCB50036495D /* Main.storyboard */,
 				219646251E4FCCB50036495D /* Assets.xcassets */,
@@ -86,6 +101,10 @@
 		DE6C9EA2E941395BA6B3BD75 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				215805D11E50690C008F0E96 /* CoreImage.framework */,
+				215805CF1E506901008F0E96 /* libstdc++.6.0.9.dylib */,
+				215805CC1E50651B008F0E96 /* libz.1.dylib */,
+				215805CA1E5064D4008F0E96 /* TesseractOCR.framework */,
 				2B3CC5C99B275299B90DF283 /* Pods_SnapRead.framework */,
 			);
 			name = Frameworks;
@@ -217,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				219646341E4FFA3E0036495D /* CameraView.swift in Sources */,
+				215805C91E50555E008F0E96 /* ProcessingView.swift in Sources */,
 				2196461F1E4FCCB50036495D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,8 +367,23 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SnapRead/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/tesseract-ios-lib/lib",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-weak_library",
+					"/usr/lib/libstdc++.6.0.9.dylib",
+					"-l\"stdc++\"",
+					"-framework",
+					"\"TesseractOCR\"",
+					"-lstdc++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.lawrencechen.SnapRead;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SnapRead-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -362,8 +397,23 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SnapRead/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/tesseract-ios-lib/lib",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-weak_library",
+					"/usr/lib/libstdc++.6.0.9.dylib",
+					"-l\"stdc++\"",
+					"-framework",
+					"\"TesseractOCR\"",
+					"lstdc++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.lawrencechen.SnapRead;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SnapRead-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
