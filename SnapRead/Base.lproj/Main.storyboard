@@ -54,10 +54,10 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleAspectFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccI-Dx-ZcT">
-                                <rect key="frame" x="87.5" y="521.5" width="200" height="105.5"/>
+                                <rect key="frame" x="274" y="607" width="85" height="45"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="DSw-Pf-sW5"/>
+                                    <constraint firstAttribute="width" constant="85" id="SId-A9-aIk"/>
                                     <constraint firstAttribute="width" secondItem="ccI-Dx-ZcT" secondAttribute="height" multiplier="464:245" id="na5-qL-8ru"/>
                                 </constraints>
                                 <size key="titleShadowOffset" width="21" height="0.0"/>
@@ -77,8 +77,6 @@
                             <constraint firstAttribute="trailing" secondItem="4Gt-pX-5vF" secondAttribute="trailing" id="Hbf-rF-1J5"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4Gt-pX-5vF" secondAttribute="bottom" id="KSw-hg-ek0"/>
                             <constraint firstItem="Bm5-HC-5m3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ks8-YT-8Y9"/>
-                            <constraint firstItem="ccI-Dx-ZcT" firstAttribute="centerX" secondItem="Bm5-HC-5m3" secondAttribute="centerX" id="PTN-06-f5F"/>
-                            <constraint firstItem="C5d-Ih-O6x" firstAttribute="top" secondItem="ccI-Dx-ZcT" secondAttribute="bottom" constant="-50" id="QTi-LV-MZd"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Bm5-HC-5m3" secondAttribute="bottom" id="Sem-wX-fE9"/>
                             <constraint firstItem="C5d-Ih-O6x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="T1x-KR-NNG"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="C5d-Ih-O6x" secondAttribute="bottom" constant="20" id="VoB-Sj-7al"/>
@@ -86,8 +84,10 @@
                             <constraint firstAttribute="trailing" secondItem="Bm5-HC-5m3" secondAttribute="trailing" id="hOl-pN-bx6"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4Gt-pX-5vF" secondAttribute="bottom" id="i2r-oF-Q38"/>
                             <constraint firstItem="4Gt-pX-5vF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kWc-ef-Obm"/>
+                            <constraint firstItem="ccI-Dx-ZcT" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="lwl-EJ-IoY"/>
                             <constraint firstItem="LU7-ho-IsZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="nTP-ck-125"/>
                             <constraint firstAttribute="trailing" secondItem="4Gt-pX-5vF" secondAttribute="trailing" id="rFp-OE-SNb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ccI-Dx-ZcT" secondAttribute="bottom" constant="15" id="sEG-yJ-MrJ"/>
                             <constraint firstItem="4Gt-pX-5vF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ykB-zS-jkW"/>
                         </constraints>
                         <variation key="default">
@@ -153,32 +153,48 @@
                                     <segue destination="BYZ-38-t0r" kind="presentation" identifier="toCamera" id="j25-8Y-akb"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZpL-Z2-hQp">
-                                <rect key="frame" x="16" y="70" width="343" height="347"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" text="Processing..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZpL-Z2-hQp">
+                                <rect key="frame" x="16" y="70" width="343" height="327"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5ua-tM-XWY">
-                                <rect key="frame" x="322" y="20" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5ua-tM-XWY">
+                                <rect key="frame" x="327" y="25" width="37" height="37"/>
                                 <color key="color" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3w-UP-znS">
+                                <rect key="frame" x="87.5" y="507.5" width="200" height="99.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="UVc-FE-gpg"/>
+                                    <constraint firstAttribute="width" secondItem="c3w-UP-znS" secondAttribute="height" multiplier="151:75" id="YNx-FD-0BZ"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="Read"/>
+                                <connections>
+                                    <action selector="soundButton:" destination="3fU-3E-KhJ" eventType="touchUpInside" id="5ls-9T-xIv"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="VnQ-U5-xQh" firstAttribute="top" secondItem="c3w-UP-znS" secondAttribute="bottom" constant="60" id="1tR-dR-ajc"/>
+                            <constraint firstItem="c3w-UP-znS" firstAttribute="centerX" secondItem="rwZ-sq-vJ0" secondAttribute="centerX" id="34X-wv-sFA"/>
+                            <constraint firstItem="5ua-tM-XWY" firstAttribute="top" secondItem="rab-hN-98r" secondAttribute="bottom" constant="5" id="5MR-t2-QsY"/>
                             <constraint firstItem="ZpL-Z2-hQp" firstAttribute="leading" secondItem="rwZ-sq-vJ0" secondAttribute="leadingMargin" id="6ga-bh-s15"/>
                             <constraint firstItem="SO4-JR-f5c" firstAttribute="top" secondItem="rab-hN-98r" secondAttribute="bottom" id="B5i-2B-a2V"/>
                             <constraint firstItem="SO4-JR-f5c" firstAttribute="leading" secondItem="rwZ-sq-vJ0" secondAttribute="leadingMargin" id="Ro5-04-5SO"/>
+                            <constraint firstItem="5ua-tM-XWY" firstAttribute="trailing" secondItem="rwZ-sq-vJ0" secondAttribute="trailingMargin" constant="5" id="Vzx-0K-x1N"/>
                             <constraint firstItem="ZpL-Z2-hQp" firstAttribute="top" secondItem="SO4-JR-f5c" secondAttribute="bottom" constant="8" id="dvG-MQ-Fnp"/>
                             <constraint firstItem="ZpL-Z2-hQp" firstAttribute="trailing" secondItem="rwZ-sq-vJ0" secondAttribute="trailingMargin" id="iNN-sf-fDD"/>
-                            <constraint firstItem="VnQ-U5-xQh" firstAttribute="top" secondItem="ZpL-Z2-hQp" secondAttribute="bottom" constant="250" id="qq9-Fg-Gjn"/>
+                            <constraint firstItem="VnQ-U5-xQh" firstAttribute="top" secondItem="ZpL-Z2-hQp" secondAttribute="bottom" constant="270" id="qq9-Fg-Gjn"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activity" destination="5ua-tM-XWY" id="EsZ-Jc-BZJ"/>
                         <outlet property="processedText" destination="ZpL-Z2-hQp" id="wr2-XH-cfJ"/>
+                        <outlet property="speakButton" destination="c3w-UP-znS" id="Bk5-8b-PBn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="irM-bT-nmD" userLabel="First Responder" sceneMemberID="firstResponder"/>

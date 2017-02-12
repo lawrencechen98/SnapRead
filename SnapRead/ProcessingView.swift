@@ -8,9 +8,12 @@
 
 import UIKit
 import TesseractOCR
+import AVFoundation
+
 
 class ProcessingView: UIViewController, G8TesseractDelegate {
 
+    @IBOutlet var speakButton: UIButton!
 
     @IBOutlet var activity: UIActivityIndicatorView!
     @IBOutlet var processedText: UITextView!
@@ -56,16 +59,24 @@ class ProcessingView: UIViewController, G8TesseractDelegate {
     
     func processImage(){
         print("start")
+        speakButton.isEnabled = false
         activity.startAnimating()
-        if let tesseract = G8Tesseract(language: "eng"){
+        if let tesseract = G8Tesseract(language: "eng+chi_tra"){
             tesseract.delegate = self
             tesseract.engineMode = .tesseractOnly
             tesseract.image = processedImage?.g8_blackAndWhite()
             tesseract.recognize()
             processedText.text = tesseract.recognizedText
             activity.stopAnimating()
+            speakButton.isEnabled = true
             print("hi")
         }
+    }
+    @IBAction func soundButton(_ sender: Any) {
+        let saying = processedText.text
+        let utterance = AVSpeechUtterance(string: saying!)
+        let synth = AVSpeechSynthesizer()
+        synth.speak(utterance)
     }
 
 }
