@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Camera View-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CameraView" customModule="SnapRead" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,93 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Gt-pX-5vF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5d-Ih-O6x">
+                                <rect key="frame" x="163" y="545" width="49" height="102"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="75"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressTakePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pMn-xa-I5Y"/>
+                                </connections>
+                            </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bm5-HC-5m3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LU7-ho-IsZ">
+                                <rect key="frame" x="16" y="20" width="30" height="42"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressDelete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YJs-AW-Lx6"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4Gt-pX-5vF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8qc-Up-DEd"/>
+                            <constraint firstItem="4Gt-pX-5vF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="BGa-ZF-NdS"/>
+                            <constraint firstItem="LU7-ho-IsZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="HHH-BP-P7D"/>
+                            <constraint firstAttribute="trailing" secondItem="4Gt-pX-5vF" secondAttribute="trailing" id="Hbf-rF-1J5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4Gt-pX-5vF" secondAttribute="bottom" id="KSw-hg-ek0"/>
+                            <constraint firstItem="C5d-Ih-O6x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="T1x-KR-NNG"/>
+                            <constraint firstAttribute="trailing" secondItem="Bm5-HC-5m3" secondAttribute="trailing" id="UOR-pv-ggv"/>
+                            <constraint firstItem="Bm5-HC-5m3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ubk-I4-VRp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="C5d-Ih-O6x" secondAttribute="bottom" constant="20" id="VoB-Sj-7al"/>
+                            <constraint firstItem="Bm5-HC-5m3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fZz-Oh-wX7"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4Gt-pX-5vF" secondAttribute="bottom" id="i2r-oF-Q38"/>
+                            <constraint firstItem="4Gt-pX-5vF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kWc-ef-Obm"/>
+                            <constraint firstItem="LU7-ho-IsZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="nTP-ck-125"/>
+                            <constraint firstAttribute="trailing" secondItem="4Gt-pX-5vF" secondAttribute="trailing" id="rFp-OE-SNb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Bm5-HC-5m3" secondAttribute="bottom" id="v9U-De-sVQ"/>
+                            <constraint firstItem="4Gt-pX-5vF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ykB-zS-jkW"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8qc-Up-DEd"/>
+                                <exclude reference="BGa-ZF-NdS"/>
+                                <exclude reference="Hbf-rF-1J5"/>
+                                <exclude reference="kWc-ef-Obm"/>
+                                <exclude reference="rFp-OE-SNb"/>
+                                <exclude reference="ykB-zS-jkW"/>
+                                <exclude reference="KSw-hg-ek0"/>
+                                <exclude reference="i2r-oF-Q38"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="8qc-Up-DEd"/>
+                                <include reference="BGa-ZF-NdS"/>
+                                <include reference="rFp-OE-SNb"/>
+                                <include reference="KSw-hg-ek0"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="Hbf-rF-1J5"/>
+                                <include reference="kWc-ef-Obm"/>
+                                <include reference="ykB-zS-jkW"/>
+                                <include reference="i2r-oF-Q38"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="cameraView" destination="4Gt-pX-5vF" id="rbJ-qF-kd1"/>
+                        <outlet property="captureButton" destination="C5d-Ih-O6x" id="Jtq-a4-apW"/>
+                        <outlet property="deleteButton" destination="LU7-ho-IsZ" id="BjP-qz-tRP"/>
+                        <outlet property="tempImageView" destination="Bm5-HC-5m3" id="Dw6-1B-BKS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="31.199999999999999" y="35.532233883058474"/>
         </scene>
     </scenes>
 </document>
